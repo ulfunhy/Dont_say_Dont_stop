@@ -82,4 +82,7 @@ public class Map {
         bg.setVisible(true);
 	}
 	
+	int getMapNum() {
+		return mapNum;
+	}
 }
