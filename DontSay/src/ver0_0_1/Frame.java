@@ -13,6 +13,8 @@ public class Frame {
 		base.setLayout(null);
 		base.setLocationRelativeTo(null);
 		base.setVisible(true);
+		
+		new Map(getFrame());
 	}
 	
 	JFrame getFrame() {
