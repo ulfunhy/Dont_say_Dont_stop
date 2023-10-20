@@ -12,11 +12,13 @@ public class Move {
     private JLabel imageLabel;
     private ImageIcon imageIcon;
     private int x, y;
+    private int maxX = 1161; // x 좌표의 최대 값
+    private int maxY = 720; // y 좌표의 최대 값
     
     public Move() {
         frame = new JFrame("움직임 구현");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 800);
+        frame.setSize(1241, 856);
         
         // 이미지 로딩 및 JLabel 초기화
         imageIcon = new ImageIcon("./images/student.png"); // 이미지 경로 설정
@@ -44,14 +46,31 @@ public class Move {
                 
                 // 방향키를 누를 때 x, y 좌표 이동
                 if (keyCode == KeyEvent.VK_LEFT) {
-                    x -= step;
+                	if(x + step <= 0) {
+                		x -= 0;
+                	} else {
+                        x -= step;                		
+                	}
                 } else if (keyCode == KeyEvent.VK_RIGHT) {
-                    x += step;
+                	if(x + step >= maxX) {
+                		x += 0;
+                	} else {
+                        x += step;                		
+                	}
                 } else if (keyCode == KeyEvent.VK_UP) {
-                    y -= step;
+                	if(y - step <= 0) {
+                		y -= 0;
+                	} else {
+                        y -= step;
+                	}
                 } else if (keyCode == KeyEvent.VK_DOWN) {
-                    y += step;
+                	if(y + step >= maxY) {
+                		y += 0;
+                	} else {
+                        y += step;                		
+                	}
                 }
+                
                 imageLabel.setBounds(x, y, imageIcon.getIconWidth(), imageIcon.getIconHeight());
             }
 
